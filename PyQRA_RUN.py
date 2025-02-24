@@ -64,13 +64,13 @@ m = 10  # Tamaño de la matriz
 # Opcion 2: Matriz Random.
 # A = gen_matrix_random_SPD(15)
 
-# Opcion 3: Matriz Ejercicio 29 guia.
+# Opcion 3: Matriz Ejercicio 29 (Trefethen - Bau, 2022).
 vec = np.arange(m, 0, -1)
 A = np.diag(vec) + np.ones(shape=m)
 
-# Opcion 4: TestCase
+# Opcion 4: TestCase Code-Aster
 from Aster01_read_data import cargar_matriz_A
-K, M, A= cargar_matriz_A(5)
+K, M, A = cargar_matriz_A(5)
 
 #------------------------------------------------------------------------------
 # Configurar algoritmos QR para ver la convergencia
