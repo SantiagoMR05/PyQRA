@@ -1,0 +1,24 @@
+P actions make_etude
+P debug nodebug
+P memjob 4145152
+P memory_limit 4048.0
+P mode interactif
+P mpi_nbcpu 1
+P mpi_nbnoeud 1
+P ncpus 1
+P nomjob RunCase_4_forma11a
+P origine AsterStudy 0.11
+P rep_trav /tmp/santi-ryzen-interactif_23293
+P server localhost
+P studyid 9881-0004-ryzen
+P time_limit 600.0
+P tpsjob 11
+P version 15.4
+A memjeveux 506.0
+A tpmax 600.0
+F comm /home/santi/Dropbox/GRUPO-IFIR-FMMH/CURSO-FEM/ALN/TEST_QR_Files/TEST_QR.comm D  1
+F libr /home/santi/Dropbox/GRUPO-IFIR-FMMH/CURSO-FEM/ALN/TEST_QR_Files/mesh10.med D  20
+F libr /home/santi/Dropbox/GRUPO-IFIR-FMMH/CURSO-FEM/ALN/TEST_QR_Files/Tabla1.txt R  8
+F libr /home/santi/Dropbox/GRUPO-IFIR-FMMH/CURSO-FEM/ALN/TEST_QR_Files/result.rmed R  55
+F mess /home/santi/Dropbox/GRUPO-IFIR-FMMH/CURSO-FEM/ALN/TEST_QR_Files/message R  6
+R base /home/santi/Dropbox/GRUPO-IFIR-FMMH/CURSO-FEM/ALN/TEST_QR_Files/base-stage1 R  0
