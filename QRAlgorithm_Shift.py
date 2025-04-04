@@ -65,22 +65,22 @@ def qr_alg_shift(T, tol, num_eigenvalues):
             Ts.append(np.round(Tk, 4))  # Almacenamos la matriz redondeada para visualización
             
             # Calcular el desplazamiento de Wilkinson o Rayleigh
-            mu = wilkinson_shift(Tk)  # Puedes alternar con rayleigh_shift si lo prefieres
+            mu = wilkinson_shift(Tk)
+            # mu = rayleigh_shift(Tk)
+            # mu = 0
             # print(convergence_measure)
     
             # Condición de convergencia
             if convergence_measure[-1] < tol:  # Verificamos si la convergencia ha alcanzado el umbral
                 eigenvalues[count] = Tk[m, m]  # Guardamos el valor diagonal
+                count += 1
+    
+                if count >= num_eigenvalues:  # Si ya encontramos los autovalores deseados, salimos del ciclo
+                    break
+    
                 Tk = Tk[:m, :m]  # Reducir la matriz Tk
                 m -= 1  # Reducir el tamaño de la matriz para el siguiente ciclo
-                count += 1
-                print(count)
-    
-            # Salir si alcanzamos el número deseado de autovalores
-            if count >= num_eigenvalues:
-                eigenvalues[0] = Tk[0, 0]
-                break
-    
+        
             # Salir si la longitud de convergence_measure excede 500
             if len(convergence_measure) >= 5000:
                 print("Se alcanzó el límite de 5000 iteraciones en convergence_measure.")
@@ -92,12 +92,13 @@ def qr_alg_shift(T, tol, num_eigenvalues):
                 print(count)
                 # break
             
-    # Registrar el último eigenvalor encontrado
-    eigenvalues[0] = Tk[0, 0]
-    
-    # Ordenar los autovalores de mayor a menor
-    sorted_indices = np.argsort(eigenvalues)[::-1]  # Ordenar en orden descendente
-    eigenvalues = eigenvalues[sorted_indices]  # Reorganizar los autovalores
+    # Guardar el último autovalor si queda uno solo
+    if m == 0:
+        eigenvalues[count] = Tk[0, 0]
+
+    # # Ordenar los autovalores de mayor a menor
+    # sorted_indices = np.argsort(eigenvalues)[::-1]  # Ordenar en orden descendente
+    # eigenvalues = eigenvalues[sorted_indices]  # Reorganizar los autovalores
     
     elapsed_time = time.time() - start_time  # Calcular el tiempo transcurrido
     print(f"Convergencia alcanzada en {len(Ts)} pasos")
